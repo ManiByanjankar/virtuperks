@@ -3,13 +3,14 @@ import * as dotenv from 'dotenv';
 import { ethers, uuidV4 } from 'ethers';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { ContractArtifacts, ContractDetails } from '../types/contract';
-dotenv.config();
+dotenv.config({ path: __dirname + '/.env' });
 
 export class commonLib {
   provider: ethers.JsonRpcProvider;
 
   constructor() {
     this.provider = new ethers.JsonRpcProvider(process.env.NETWORK_PROVIDER);
+    console.log(process.env.NETWORK_PROVIDER, 'NETWORK');
   }
   static getUUID() {
     return uuidV4(randomBytes(16));

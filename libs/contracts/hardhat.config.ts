@@ -1,12 +1,11 @@
 import { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox';
-// import 'solidity-docgen';
+import * as dotenv from 'dotenv';
 
-// const chainIds = {
-//   ganache: 1337,
-// };
+dotenv.config();
 const chainIds = {
   ganache: 31337,
+  sepolia: 11155111,
 };
 
 const config: HardhatUserConfig = {
@@ -37,6 +36,7 @@ const config: HardhatUserConfig = {
       chainId: chainIds.ganache,
       url: 'http://127.0.0.1:8545',
     },
+
   },
 };
 

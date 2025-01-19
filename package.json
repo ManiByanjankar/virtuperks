@@ -13,6 +13,7 @@
     "contracts:compile": "cd ./libs/contracts && hardhat compile",
     "contracts:test": "cd ./libs/contracts && hardhat test",
     "contracts:deploy": "cd ./libs/contracts && hardhat run scripts/deploy.ts --network localhost",
+    "contracts:deployTest": "cd ./libs/contracts && hardhat run scripts/deploy.ts --network sepolia",
     "contracts:node": "cd ./libs/contracts && npx hardhat node",
     "build": "nx build",
     "deployContract": "ts-node tools/deploy/deployment.ts"

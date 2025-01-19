@@ -1,0 +1,13 @@
+{
+  "mainnet": {
+    "Token": {
+      "address": "0xaf1A4352881318A0f45596709bB30150ff55ba7B",
+      "startBlock": 7502905
+    }
+  },
+  "sepolia": {
+    "Contract": {
+      "address": "0xd33c7ABd4DB75391b30793ea02B481bCFAdc6FeC"
+    }
+  }
+}

@@ -82,4 +82,6 @@ out
 /libs/contracts/ignition/deployments/*
 /libs/contracts/scripts/standard-json/*
 
+build
+
 .npmrc
