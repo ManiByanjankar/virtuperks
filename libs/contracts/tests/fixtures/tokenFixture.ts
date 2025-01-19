@@ -1,12 +1,15 @@
 import hre from "hardhat";
-interface Fixture {
-    accessManagerV2: any;
-    rumsanForwarder: any;
-    rewardToken: any;
-    deployer: any;
-    signers: any;
+import { ethers } from "ethers";
+import { AccessManagerV2, RewardToken, ERC2771Forwarder } from '../../typechain-types'
+
+export interface TokenFixture {
+    accessManagerV2: AccessManagerV2;
+    rumsanForwarder: ERC2771Forwarder;
+    rewardToken: RewardToken;
+    deployer: ethers.Signer;
+    signers: ethers.Signer[];
 }
-export const deployRahatTokenFixture = async function (): Promise<Fixture> {
+export const deployRahatTokenFixture = async function (): Promise<TokenFixture> {
     console.log("deploying fixtures");
     const [deployer, ...signers] = await hre.ethers.getSigners();
     const tokenAppId = hre.ethers.id('TOKEN_APP');

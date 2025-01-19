@@ -8,13 +8,13 @@ export interface TaskManagementFixture {
     redEntity: EntityTaskManager;
     blueEntity: EntityTaskManager;
     redEntityOwner: ethers.Signer //Entity Admin/Manager - that manages the roles
-    blueEntityOwner: any;// Entity Manager - that manages the roles
-    redCakeTaskOwner: any; //Task Owner
-    blueCakeTaskOwner: any;//Task Owner
-    participant1: any;//Task Participant
-    participant2: any;//Task Participant
-    deployer: any;
-    signers: any;
+    blueEntityOwner: ethers.Signer;// Entity Manager - that manages the roles
+    redCakeTaskOwner: ethers.Signer; //Task Owner
+    blueCakeTaskOwner: ethers.Signer;//Task Owner
+    participant1: ethers.Signer;//Task Participant
+    participant2: ethers.Signer;//Task Participant
+    deployer: ethers.Signer;
+    signers: ethers.Signer[];
     redEntityAppId: string;
     blueEntityAppId: string;
 }
