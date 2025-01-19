@@ -1,0 +1,18 @@
+{
+  "rumsanForwarder": {
+    "address": "0x32B866B121aa6F38DA3be785d302C4F9572f05Fe",
+    "startBlock": 367003
+  },
+  "accessManagerV2": {
+    "address": "0x7Fb2879AEF02B398e894a04EDB008590FB4de307",
+    "startBlock": 367005
+  },
+  "rewardToken": {
+    "address": "0xee039dC76D610f20825929491e0C4A55FCeADaE8",
+    "startBlock": 367008
+  },
+  "entity": {
+    "address": "0xD7522FdE73efA1ADb54cfB43978f28785CFf48aE",
+    "startBlock": 367010
+  }
+}

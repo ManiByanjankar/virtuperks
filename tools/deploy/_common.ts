@@ -5,12 +5,15 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { ContractArtifacts, ContractDetails } from '../types/contract';
 dotenv.config({ path: __dirname + '/.env' });
 
+//configs
+const PROVIDER = process.env.NETWORK_PROVIDER
+const PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY
+
 export class commonLib {
   provider: ethers.JsonRpcProvider;
 
   constructor() {
-    this.provider = new ethers.JsonRpcProvider(process.env.NETWORK_PROVIDER);
-    console.log(process.env.NETWORK_PROVIDER, 'NETWORK');
+    this.provider = new ethers.JsonRpcProvider(PROVIDER);
   }
   static getUUID() {
     return uuidV4(randomBytes(16));
@@ -20,7 +23,7 @@ export class commonLib {
   }
   public getDeployerWallet() {
     return new ethers.Wallet(
-      process.env.DEPLOYER_PRIVATE_KEY as string,
+      PRIVATE_KEY as string,
       this.provider
     );
   }
@@ -42,7 +45,6 @@ export class commonLib {
     await contract.waitForDeployment();
     const txBlock = await contract.deploymentTransaction()?.getBlock();
     this.sleep(2000);
-    console.log(txBlock);
     return {
       blockNumber: txBlock?.number || 1,
       contract: new ethers.Contract(address, abi, this.provider),
