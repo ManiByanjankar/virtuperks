@@ -18,8 +18,9 @@ interface IEntityTaskManager {
     string detailsUrl;
     address rewardToken;
     uint256 rewardAmount;
-    address[] allowedWallets;
-    uint expiryDate;
+    address[] allowedWallets; //who can participate
+    uint256 maxParticipants;
+    uint256 expiryDate;
     address owner;
     bool isActive;
   }
@@ -39,9 +40,16 @@ interface IEntityTaskManager {
 
   function participate(string memory taskId) external;
 
+  function acceptParticipant(
+    string memory taskId,
+    address participant
+  ) external;
+
   function completeTask(string memory taskId) external;
 
-  function approveTask(string memory taskId) external;
+  //verify completely new task
+  //transfer tokens to the participant
+  function verifyCompletion(string memory taskId) external;
 
   function taskAssignments(
     string memory taskId

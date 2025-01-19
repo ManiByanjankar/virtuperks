@@ -28,13 +28,13 @@ dependencies:
     version: 6.2.1(prisma@6.2.1)
   '@rumsan/extensions':
     specifier: ^0.1.103
-    version: 0.1.148
+    version: 0.1.147
   '@rumsan/prisma':
     specifier: ^1.0.121
     version: 1.0.140
   '@rumsan/sdk':
     specifier: ^0.1.102
-    version: 0.1.152
+    version: 0.1.150
   '@rumsan/user':
     specifier: ^3.1.103
     version: 3.1.148
@@ -1867,7 +1867,7 @@ packages:
     resolution: {integrity: sha512-Cq2qS0FTu6O2VU1sgg+WyU9Ps0M6j/BEMHN+hRaECXCV/r0aI78u4N6p52QW/BDVhwWZpCdrvG8X7NJdzlpNUA==}
     dependencies:
       crc-32: 1.2.2
-      ethereumjs-util: 7.1.5
+      ethereumjs-util: 7.1.3
     dev: true
 
   /@ethereumjs/common@2.6.5:
@@ -1897,7 +1897,7 @@ packages:
     resolution: {integrity: sha512-WWUwg1PdjHKZZxPPo274ZuPsJCWV3SqATrEKQP1n2DrVYVP1aZIYpo/mFaA0BDoE0tIQmBeimRCEA0Lgil+yYw==}
     dependencies:
       '@ethereumjs/common': 2.6.0
-      ethereumjs-util: 7.1.5
+      ethereumjs-util: 7.1.3
     dev: true
 
   /@ethereumjs/tx@3.5.2:
@@ -1926,7 +1926,7 @@ packages:
       async-eventemitter: 0.2.4
       core-js-pure: 3.40.0
       debug: 2.6.9
-      ethereumjs-util: 7.1.5
+      ethereumjs-util: 7.1.3
       functional-red-black-tree: 1.0.1
       mcl-wasm: 0.7.9
       merkle-patricia-tree: 4.2.4
@@ -2634,7 +2634,7 @@ packages:
       lodash.clonedeepwith: 4.5.0
       log4js: 6.9.1
       node-schedule: 2.1.1
-      rambda: 9.4.1
+      rambda: 9.4.2
       typescript: 5.6.3
       ws: 8.18.0
     transitivePeerDependencies:
@@ -3371,7 +3371,7 @@ packages:
       picocolors: 1.1.1
       semver: 6.3.1
       table: 6.9.0
-      undici: 5.28.4
+      undici: 5.28.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4414,15 +4414,6 @@ packages:
       class-validator: 0.14.1
     dev: false
 
-  /@rumsan/extensions@0.1.148:
-    resolution: {integrity: sha512-YuSxHH6QbgxmCCuw9e0SlUWQ9tINnuWDPedFWQVL4hIiEffLPzDKgXHtVi9JGGGgLWTtBjt6NUGYoCf4GnB4WA==, tarball: https://npm.pkg.github.com/download/@rumsan/extensions/0.1.148/f5955f0e4001abfc84f1a2cc541c2f44ab3601c3}
-    dependencies:
-      '@rumsan/prisma': 1.0.131
-      '@rumsan/sdk': 0.1.151
-      class-transformer: 0.5.1
-      class-validator: 0.14.1
-    dev: false
-
   /@rumsan/prisma@1.0.131:
     resolution: {integrity: sha512-/sAC3GRj9PctLvLDVOV/J9UH5CIhxe7XocvtRmJXHGZ3LG+UwOdHYK+1LGIWAUvipFQ4lmXeWITjOWM4rsLJkg==, tarball: https://npm.pkg.github.com/download/@rumsan/prisma/1.0.131/a611bf9e3a955a90a5e0c0ee3e466dfe74a65cf6}
     dependencies:
@@ -4447,12 +4438,8 @@ packages:
     resolution: {integrity: sha512-ura+VHwIt+S4OZ5wF5fsfrecd0IOeNWN9slX8rFu8DJMiIRK+l+brrre967mUmONq3MIBkwmIg2RqVVbHb6Lpg==, tarball: https://npm.pkg.github.com/download/@rumsan/sdk/0.1.147/10cdecad4123abb5e23b4ffbd3765491f58e9f44}
     dev: false
 
-  /@rumsan/sdk@0.1.151:
-    resolution: {integrity: sha512-aFVjQctRzhtJNd0PvXLAshBeUBoDmVMVWYHBqkFrEqMnDmITli4MxyZrSApc3+qwzuvmoc60PhuCRFK+DobiPA==, tarball: https://npm.pkg.github.com/download/@rumsan/sdk/0.1.151/400b01ab61c09cdc9186285c1011264001934675}
-    dev: false
-
-  /@rumsan/sdk@0.1.152:
-    resolution: {integrity: sha512-nyojB4JiMM9MT3NhKX1ZS9574AmiXgGSKTldjrshDOllgk8DRUkiA+y/Lkwf1QrbN5Bq+kNFd7C2gvrvNicgUw==, tarball: https://npm.pkg.github.com/download/@rumsan/sdk/0.1.152/5030b0d1589a07e951678af164a844a9e718569b}
+  /@rumsan/sdk@0.1.150:
+    resolution: {integrity: sha512-Hk9wv3gBM/k9luA1IV3Yxqam1Ub1C9uyPx6rJo8iRY9XlNr2ry+9MPZ8okpm0vCFX8RPMgluu+9yZ8zy6rM8WA==, tarball: https://npm.pkg.github.com/download/@rumsan/sdk/0.1.150/c64e82810971ddb2b1cec38bace860d01eb009d2}
     dev: false
 
   /@rumsan/user@3.1.148:
@@ -6647,7 +6634,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001692
-      electron-to-chromium: 1.5.82
+      electron-to-chromium: 1.5.83
       node-releases: 2.0.19
       update-browserslist-db: 1.1.2(browserslist@4.24.4)
 
@@ -6930,7 +6917,7 @@ packages:
     resolution: {integrity: sha512-2VEG9JICxIqTpoK1eMzZqaV+u/EiwEJkMGzTrZf6sU/fwsnOITVgYJ8yojSy6CaXtO9V0Cc6ZQZ8h8m4UBuLwQ==}
     dependencies:
       '@types/validator': 13.12.2
-      libphonenumber-js: 1.11.17
+      libphonenumber-js: 1.11.18
       validator: 13.12.0
 
   /clean-stack@2.2.0:
@@ -7897,8 +7884,8 @@ packages:
       jake: 10.9.2
     dev: true
 
-  /electron-to-chromium@1.5.82:
-    resolution: {integrity: sha512-Zq16uk1hfQhyGx5GpwPAYDwddJuSGhtRhgOA2mCxANYaDT79nAeGnaXogMGng4KqLaJUVnOnuL0+TDop9nLOiA==}
+  /electron-to-chromium@1.5.83:
+    resolution: {integrity: sha512-LcUDPqSt+V0QmI47XLzZrz5OqILSMGsPFkDYus22rIbgorSvBYEFqq854ltTmUdHkY92FSdAAvsh4jWEULMdfQ==}
 
   /elliptic@6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -8019,7 +8006,6 @@ packages:
   /errno@0.1.8:
     resolution: {integrity: sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==}
     hasBin: true
-    requiresBuild: true
     dependencies:
       prr: 1.0.1
     dev: true
@@ -8382,7 +8368,6 @@ packages:
       is-hex-prefixed: 1.0.0
       strip-hex-prefix: 1.0.0
     dev: true
-    bundledDependencies: false
 
   /event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
@@ -8635,8 +8620,8 @@ packages:
       bser: 2.1.1
     dev: true
 
-  /fdir@6.4.2(picomatch@4.0.2):
-    resolution: {integrity: sha512-KnhMXsKSPZlAhp7+IjUkRZKPb4fUyccpDrdFXbi4QL1qkmFh9kVY09Yox+n4MaOb3lHZ1Tv829C3oaaXoMYPDQ==}
+  /fdir@6.4.3(picomatch@4.0.2):
+    resolution: {integrity: sha512-PMXmW2y1hDDfTSRc9gaXIuCCRpuoz3Kaz8cUelp3smouvfT632ozg2vrT6lJsHKKOF59YLbOGfAWGUcKEfRMQw==}
     peerDependencies:
       picomatch: ^3 || ^4
     peerDependenciesMeta:
@@ -8876,7 +8861,7 @@ packages:
       jsonfile: 2.4.0
       klaw: 1.3.1
       path-is-absolute: 1.0.1
-      rimraf: 2.4.5
+      rimraf: 2.7.1
     dev: true
 
   /fs-extra@10.1.0:
@@ -9334,7 +9319,7 @@ packages:
       ts-node: 10.9.1(@swc/core@1.5.29)(@types/node@18.16.20)(typescript@5.6.3)
       tsort: 0.0.1
       typescript: 5.6.3
-      undici: 5.28.4
+      undici: 5.28.5
       uuid: 8.3.2
       ws: 7.5.10
     transitivePeerDependencies:
@@ -10918,8 +10903,8 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /libphonenumber-js@1.11.17:
-    resolution: {integrity: sha512-Jr6v8thd5qRlOlc6CslSTzGzzQW03uiscab7KHQZX1Dfo4R6n6FDhZ0Hri6/X7edLIDv9gl4VMZXhxTjLnl0VQ==}
+  /libphonenumber-js@1.11.18:
+    resolution: {integrity: sha512-okMm/MCoFrm1vByeVFLBdkFIXLSHy/AIK2AEGgY3eoicfWZeOZqv3GfhtQgICkzs/tqorAMm3a4GBg5qNCrqzg==}
 
   /license-webpack-plugin@4.0.2(webpack@5.97.1):
     resolution: {integrity: sha512-771TFWFD70G1wLTC4oU2Cw4qvtmNrIw+wRvBtn+okgHl7slJVi7zfNcdmqDL72BojM30VNJ2UHylr1o77U37Jw==}
@@ -12838,8 +12823,8 @@ packages:
     resolution: {integrity: sha512-tYC1Q1hgyRuHgloV/YXs2w15unPVh8qfu/qCTfhTYamaw7fyhumKa2yGpdSo87vY32rIclj+4fWYQXUMs9EHvg==}
     dev: true
 
-  /rambda@9.4.1:
-    resolution: {integrity: sha512-awZe9AzmPI8XqizJz+NlaRbAdjhWKvuIaPikqRH6r41/ui9UTUQY5jTVdgQwnVrv1HnSMB6IBAAnNYs8HoVvZg==}
+  /rambda@9.4.2:
+    resolution: {integrity: sha512-++euMfxnl7OgaEKwXh9QqThOjMeta2HH001N1v4mYQzBjJBnmXBh2BCK6dZAbICFVXOFUVD3xFG0R3ZPU0mxXw==}
     dev: true
 
   /randombytes@2.1.0:
@@ -13171,6 +13156,14 @@ packages:
     hasBin: true
     dependencies:
       glob: 6.0.4
+    dev: true
+
+  /rimraf@2.7.1:
+    resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
+    hasBin: true
+    dependencies:
+      glob: 7.2.3
     dev: true
 
   /ripemd160@2.0.2:
@@ -14270,19 +14263,19 @@ packages:
     resolution: {integrity: sha512-Zc+8eJlFMvgatPZTl6A9L/yht8QqdmUNtURHaKZLmKBE12hNPSrqNkUp2cs3M/UKmNVVAMFQYSjYIVHDjW5zew==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      fdir: 6.4.2(picomatch@4.0.2)
+      fdir: 6.4.3(picomatch@4.0.2)
       picomatch: 4.0.2
     dev: true
 
-  /tldts-core@6.1.71:
-    resolution: {integrity: sha512-LRbChn2YRpic1KxY+ldL1pGXN/oVvKfCVufwfVzEQdFYNo39uF7AJa/WXdo+gYO7PTvdfkCPCed6Hkvz/kR7jg==}
+  /tldts-core@6.1.72:
+    resolution: {integrity: sha512-FW3H9aCaGTJ8l8RVCR3EX8GxsxDbQXuwetwwgXA2chYdsX+NY1ytCBl61narjjehWmCw92tc1AxlcY3668CU8g==}
     dev: true
 
-  /tldts@6.1.71:
-    resolution: {integrity: sha512-LQIHmHnuzfZgZWAf2HzL83TIIrD8NhhI0DVxqo9/FdOd4ilec+NTNZOlDZf7EwrTNoutccbsHjvWHYXLAtvxjw==}
+  /tldts@6.1.72:
+    resolution: {integrity: sha512-QNtgIqSUb9o2CoUjX9T5TwaIvUUJFU1+12PJkgt42DFV2yf9J6549yTF2uGloQsJ/JOC8X+gIB81ind97hRiIQ==}
     hasBin: true
     dependencies:
-      tldts-core: 6.1.71
+      tldts-core: 6.1.72
     dev: true
 
   /tmp@0.0.33:
@@ -14324,7 +14317,7 @@ packages:
     resolution: {integrity: sha512-rvZUv+7MoBYTiDmFPBrhL7Ujx9Sk+q9wwm22x8c8T5IJaR+Wsyc7TNxbVxo84kZoRJZZMazowFLqpankBEQrGg==}
     engines: {node: '>=16'}
     dependencies:
-      tldts: 6.1.71
+      tldts: 6.1.72
     dev: true
 
   /tr46@0.0.3:
@@ -14634,8 +14627,8 @@ packages:
   /undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
-  /undici@5.28.4:
-    resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
+  /undici@5.28.5:
+    resolution: {integrity: sha512-zICwjrDrcrUE0pyyJc1I2QzBkLM8FINsgOrt6WjA+BgajVq9Nxu2PbFFXUrAggLfDXlZGZBVZYw7WNV5KiBiBA==}
     engines: {node: '>=14.0'}
     dependencies:
       '@fastify/busboy': 2.1.1

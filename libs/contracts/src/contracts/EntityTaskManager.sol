@@ -7,7 +7,7 @@ import './interfaces/IEntityTaskManager.sol';
 contract EntityTaskManager is IEntityTaskManager {
   IAccessManagerV2 public acl;
 
-  bytes32 public constant TASK_MANAGER = keccak256('TASK_MANAGER');
+  bytes32 public constant ENTITY_OWNER = keccak256('ENTITY_OWNER');
   bytes32 public constant PARTICIPANT = keccak256('PARTICIPANT');
 
   mapping(string => Task) public tasks;
@@ -27,7 +27,7 @@ contract EntityTaskManager is IEntityTaskManager {
 
   /// @notice This function creates a new Task
   /// @param task The task object
-  function createTask(Task memory task) public onlyRole(TASK_MANAGER) {
+  function createTask(Task memory task) public onlyRole(ENTITY_OWNER) {
     if (task.owner == address(0)) {
       task.owner = msg.sender;
     }
@@ -65,7 +65,7 @@ contract EntityTaskManager is IEntityTaskManager {
   function acceptParticipant(
     string memory taskId,
     address participant
-  ) public onlyRole(TASK_MANAGER) {
+  ) public onlyRole(ENTITY_OWNER) {
     require(tasks[taskId].owner != address(0), 'Task does not exist');
     require(tasks[taskId].isActive, 'Task is not active');
     require(
@@ -97,8 +97,8 @@ contract EntityTaskManager is IEntityTaskManager {
 
   /// @notice This function will change the status of the task
   /// @param taskId The id of the task
-  function approveTask(string memory taskId) external onlyRole(TASK_MANAGER) {
-    require(tasks[taskId].owner != address(0), 'Task does not exist');
+  function verifyCompletion(string memory taskId) external {
+    require(tasks[taskId].owner == msg.sender, 'not a owner of this task');
     require(tasks[taskId].isActive, 'Task is not active');
     require(
       taskAssignments[taskId].status == STATUS.COMPLETED,

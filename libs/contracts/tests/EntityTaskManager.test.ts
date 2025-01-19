@@ -4,8 +4,7 @@ import {
 } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 import hre from "hardhat";
 import { deployTaskManagementFixture, TaskManagementFixture, taskDetails1 } from "./fixtures";
-import exp from "constants";
-
+// import {AccessManager} from '../typechain-types'
 //function to get the unixtimestamp 
 function getUnixTimeStamp() {
     return Math.floor(new Date().getTime() / 1000);
@@ -41,15 +40,16 @@ describe('------ Task Management Tests ------', function () {
         });
 
         it("should create a task", async function () {
-            await tmf.redEntity.connect(tmf.redCakeTaskOwner).createTask(
-                [taskDetails1,
-                    tmf.rewardToken.target,
-                    100,
-                    [tmf.participant1.address, tmf.participant2.address],
-                    getUnixTimeStamp() + 86400,
-                    tmf.redCakeTaskOwner.address,
-                    true]
-            );
+            await tmf.redEntity.connect(tmf.redCakeTaskOwner).createTask({
+                detailsUrl: taskDetails1,
+                rewardToken: tmf.rewardToken.target,
+                rewardAmount: 100,
+                allowedWallets: [tmf.participant1.address, tmf.participant2.address],
+                maxParticipants: 0,
+                expiryDate: getUnixTimeStamp() + 86400,
+                owner: tmf.redCakeTaskOwner.address,
+                isActive: true
+            });
             const task = await tmf.redEntity.tasks(taskDetails1);
             expect(task.detailsUrl).to.equal(taskDetails1);
             expect(task.rewardToken).to.equal(tmf.rewardToken.target);
@@ -59,7 +59,6 @@ describe('------ Task Management Tests ------', function () {
         });
 
         it('should participate in a task', async function () {
-            const taskDetails1 = 'https://www.rumsantask.com/task1';
             await tmf.redEntity.connect(tmf.participant1).participate(taskDetails1);
             const taskAssignments = await tmf.redEntity.taskAssignments(taskDetails1);
             expect(taskAssignments[0]).to.equal(tmf.participant1.address);
@@ -78,8 +77,8 @@ describe('------ Task Management Tests ------', function () {
             expect(taskAssignments[1]).to.equal(2);//COMPLETED
         });
 
-        it('should approve a task', async function () {
-            await tmf.redEntity.connect(tmf.redCakeTaskOwner).approveTask(taskDetails1);
+        it('should verify a task', async function () {
+            await tmf.redEntity.connect(tmf.redCakeTaskOwner).verifyCompletion(taskDetails1);
             const task = await tmf.redEntity.tasks(taskDetails1);
             const taskAssignments = await tmf.redEntity.taskAssignments(taskDetails1);
             expect(task.isActive).to.equal(false);

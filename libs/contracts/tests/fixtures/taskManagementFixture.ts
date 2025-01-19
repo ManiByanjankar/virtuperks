@@ -1,11 +1,13 @@
 import hre from "hardhat";
+import { AccessManagerV2, ERC2771Forwarder, RewardToken, EntityTaskManager } from '../../typechain-types';
+import { ethers } from "ethers";
 export interface TaskManagementFixture {
-    accessManagerV2: any;
-    rumsanForwarder: any;
-    rewardToken: any;
-    redEntity: any;
-    blueEntity: any;
-    redEntityOwner: any; //Entity Admin/Manager - that manages the roles
+    accessManagerV2: AccessManagerV2;
+    rumsanForwarder: ERC2771Forwarder;
+    rewardToken: RewardToken;
+    redEntity: EntityTaskManager;
+    blueEntity: EntityTaskManager;
+    redEntityOwner: ethers.Signer //Entity Admin/Manager - that manages the roles
     blueEntityOwner: any;// Entity Manager - that manages the roles
     redCakeTaskOwner: any; //Task Owner
     blueCakeTaskOwner: any;//Task Owner
@@ -38,7 +40,7 @@ export const deployTaskManagementFixture = async function (): Promise<TaskManage
         [accessManagerV2.target, blueEntityAppId]);
 
     // access-management
-    const taskManagementRole = hre.ethers.id('TASK_MANAGER')
+    const taskManagementRole = hre.ethers.id('ENTITY_OWNER')
     const participantRole = hre.ethers.id('PARTICIPANT');
     await accessManagerV2.connect(redEntityOwner).grantRole(redEntityAppId, taskManagementRole, redCakeTaskOwner.address);
     await accessManagerV2.connect(redEntityOwner).grantRole(redEntityAppId, participantRole, participant1.address);
