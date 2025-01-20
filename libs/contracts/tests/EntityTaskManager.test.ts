@@ -22,7 +22,7 @@ describe('------ Task Management Tests ------', function () {
             expect(await tmf.rewardToken.name()).to.equal('Rahat');
             expect(await tmf.rewardToken.symbol()).to.equal('RTH');
             expect(await tmf.rewardToken.decimals()).to.equal(0n);
-            expect(await tmf.rewardToken.totalSupply()).to.equal(0n);
+            expect(await tmf.rewardToken.totalSupply()).to.equal(1000n);
         });
 
         it('should deploy entities with expected initial values', async function () {
@@ -43,9 +43,9 @@ describe('------ Task Management Tests ------', function () {
             await tmf.redEntity.connect(tmf.redCakeTaskOwner).createTask({
                 detailsUrl: taskDetails1,
                 rewardToken: tmf.rewardToken.target,
-                rewardAmount: 100,
+                rewardAmount: 10,
                 allowedWallets: [tmf.participant1.address, tmf.participant2.address],
-                maxParticipants: 0,
+                maxParticipants: 2,
                 expiryDate: getUnixTimeStamp() + 86400,
                 owner: tmf.redCakeTaskOwner.address,
                 isActive: true
@@ -53,36 +53,36 @@ describe('------ Task Management Tests ------', function () {
             const task = await tmf.redEntity.tasks(taskDetails1);
             expect(task.detailsUrl).to.equal(taskDetails1);
             expect(task.rewardToken).to.equal(tmf.rewardToken.target);
-            expect(task.rewardAmount).to.equal(100);
+            expect(task.rewardAmount).to.equal(10);
             expect(task.isActive).to.equal(true);
             expect(task.owner).to.equal(tmf.redCakeTaskOwner.address);
         });
 
         it('should participate in a task', async function () {
             await tmf.redEntity.connect(tmf.participant1).participate(taskDetails1);
-            const taskAssignments = await tmf.redEntity.taskAssignments(taskDetails1);
-            expect(taskAssignments[0]).to.equal(tmf.participant1.address);
-            expect(taskAssignments[1]).to.equal(0);//UNACCEPTED
+            const taskAssignmentStatus = await tmf.redEntity.taskAssignments(taskDetails1, tmf.participant1.address);
+            expect(taskAssignmentStatus).to.equal(0);//UNACCEPTED
         });
 
         it('should accept participation in a task', async function () {
             await tmf.redEntity.connect(tmf.redCakeTaskOwner).acceptParticipant(taskDetails1, tmf.participant1.address);
-            const taskAssignments = await tmf.redEntity.taskAssignments(taskDetails1);
-            expect(taskAssignments[1]).to.equal(1);//ACCEPTED
+            const taskAssignmentStatus = await tmf.redEntity.taskAssignments(taskDetails1, tmf.participant1.address);
+            expect(taskAssignmentStatus).to.equal(1);//ACCEPTED
         });
 
         it('should complete a task', async function () {
             await tmf.redEntity.connect(tmf.participant1).completeTask(taskDetails1);
-            const taskAssignments = await tmf.redEntity.taskAssignments(taskDetails1);
-            expect(taskAssignments[1]).to.equal(2);//COMPLETED
+            const taskAssignmentStatus = await tmf.redEntity.taskAssignments(taskDetails1, tmf.participant1.address);
+            expect(taskAssignmentStatus).to.equal(2);//COMPLETED
         });
 
         it('should verify a task', async function () {
             await tmf.redEntity.connect(tmf.redCakeTaskOwner).verifyCompletion(taskDetails1);
             const task = await tmf.redEntity.tasks(taskDetails1);
-            const taskAssignments = await tmf.redEntity.taskAssignments(taskDetails1);
+            const taskAssignmentStatus = await tmf.redEntity.taskAssignments(taskDetails1, tmf.participant1.address);
             expect(task.isActive).to.equal(false);
-            expect(taskAssignments[1]).to.equal(3);//VERIFIED
+            expect(taskAssignmentStatus).to.equal(3);//VERIFIED
+            expect(await tmf.rewardToken.balanceOf(tmf.participant1.address)).to.equal(10);
         });
 
     });

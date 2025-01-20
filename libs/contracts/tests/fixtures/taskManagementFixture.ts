@@ -42,10 +42,13 @@ export const deployTaskManagementFixture = async function (): Promise<TaskManage
     // access-management
     const taskManagementRole = hre.ethers.id('ENTITY_OWNER')
     const participantRole = hre.ethers.id('PARTICIPANT');
+    await accessManagerV2.connect(deployer).grantRole(tokenAppId, hre.ethers.id('MINTER'), deployer.address);
     await accessManagerV2.connect(redEntityOwner).grantRole(redEntityAppId, taskManagementRole, redCakeTaskOwner.address);
     await accessManagerV2.connect(redEntityOwner).grantRole(redEntityAppId, participantRole, participant1.address);
     await accessManagerV2.connect(redEntityOwner).grantRole(redEntityAppId, participantRole, participant2.address);
 
+    //mint reward token to entity contract
+    await rewardToken.connect(deployer).mint(redEntity.target, 1000);
 
     console.log('fixtures deployed')
     return {
