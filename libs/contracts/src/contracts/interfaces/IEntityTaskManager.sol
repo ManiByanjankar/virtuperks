@@ -52,6 +52,7 @@ interface IEntityTaskManager {
   function verifyCompletion(string memory taskId) external;
 
   function taskAssignments(
-    string memory taskId
-  ) external view returns (address participant, STATUS status);
+    string memory taskId,
+    address participant
+  ) external view returns (STATUS status);
 }
