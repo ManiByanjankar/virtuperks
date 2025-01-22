@@ -22,7 +22,7 @@ export const QueryProvider = ({ children }: QueryProviderProps) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ConnectKitProvider theme="retro">{children}</ConnectKitProvider>
+      <ConnectKitProvider theme="soft">{children}</ConnectKitProvider>
     </QueryClientProvider>
   );
 };

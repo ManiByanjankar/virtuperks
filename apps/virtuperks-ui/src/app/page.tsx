@@ -1,7 +1,6 @@
 'use client';
 
 import { ConnectKitButton } from 'connectkit';
-import ConnectWallet from '../components/wallet/connect-wallet';
 
 export default function Home() {
   return (
@@ -12,7 +11,6 @@ export default function Home() {
           <nav>
             <ul className="flex space-x-10">
               <li>
-                <ConnectWallet />
                 <ConnectKitButton />
               </li>
             </ul>
