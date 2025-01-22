@@ -1,14 +1,22 @@
-import styles from './page.module.css';
+'use client';
 
-export default function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.css file.
-   */
+import { ConnectKitButton } from 'connectkit';
+
+export default function Home() {
   return (
-    <div className={styles.page}>
-     Test
-    </div>
+    <main className="min-h-screen min-w-screen flex items-center justify-center bg-gray-100">
+      <header className="bg-black py-8 shadow-md w-full">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-xl font-bold text-white">Wallet Connect</h1>
+          <nav>
+            <ul className="flex space-x-10">
+              <li>
+                <ConnectKitButton />
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </main>
   );
 }
